@@ -1,79 +1,79 @@
 {
     "articles": [
         {
-            "title": "Sample Article",
+            "title": "Segment Trees versus Fenwick Trees",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Traveling Salesman Problem",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "0-1 Knapsack Problem",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Coin Change Problem",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "DP Versus Greedy Solutions",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Paradoxes in Computer Science",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Counting and Probability Basics",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Simple Bitmask DP Problems",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Basic Bitwise Operations",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "The Wonders of XOR",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Binary Trees",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "Union Find Data Structure",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
-            "title": "Sample Article",
+            "title": "DFS and BFS Floodfill",
             "datePublished": "01 - 01 - 1970",
             "author": "me",
             "linkToArticle": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
