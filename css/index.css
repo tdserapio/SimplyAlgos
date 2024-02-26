@@ -1,0 +1,35 @@
+.container {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+h1 {
+    font-size: min(9vw, 9vh);
+}
+
+h2 {
+    font-style: italic;
+    font-size: min(3vw, 3vh);
+}
+
+button {
+    font-family: Lexend;
+    cursor: pointer;
+    width: 25vw;
+    font-size: min(3vw, 3vh);
+    padding: 1.5vh 0.5vw;
+    border-radius: 10vh;
+
+    color: black;
+    background-color: #ffdd64;
+    border: 3px solid #FFE587;
+}
+
+button:hover {
+    background-color: #ffd12d;
+}
