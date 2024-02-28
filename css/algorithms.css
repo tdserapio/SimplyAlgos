@@ -57,3 +57,27 @@ h3 {
         padding-top: 31vh;
     }
 }
+
+h2.resultTitle {
+    font-size: min(3.8vh, 3.8vw);
+}
+
+p.resultPublished {
+    font-style: italic;
+    font-size: min(2.4vh, 2.4vw);
+    font-weight: 300;
+}
+
+div.titleDiv {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p.resultDescription {
+    text-align: justify;
+    font-size: min(2.8vh, 2.8vw);
+    margin-top: 10px;
+}

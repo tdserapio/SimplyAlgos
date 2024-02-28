@@ -17,51 +17,18 @@ async function doAjaxThings() {
     articles = JSON.parse(request.responseText)["articles"];
 }
 
-function intersect(...sets) {
-    if (!sets.length) return new Set();
-    const i = sets.reduce((m, s, i) => s.size < sets[m].size ? i : m, 0);
-    const [smallest] = sets.splice(i, 1);
-    const res = new Set();
-    for (let val of smallest)
-        if (sets.every(s => s.has(val)))
-             res.add(val);
-    return res;
-}
-
 function sentenceSimilarity(s1, s2) {
-    function sentenceJaccard(s1, s2) {
-        s1 = s1.toLowerCase();
-        s2 = s2.toLowerCase();
-        let sets1 = new Set(s1.split(" "));
-        let sets2 = new Set(s2.split(" "));
-        let intersectionSize = intersect(sets1, sets2).size;
-    
-        return intersectionSize / (sets1.size + sets2.size - intersectionSize);
-    }
-
-    function normalizedLevenshteinDistance(s1, s2) {
-        if (!s1.length) return s1.length;
-        if (!s2.length) return s2.length;
-        const arr = [];
-        for (let i = 0; i <= s2.length; i++) {
-          arr[i] = [i];
-          for (let j = 1; j <= s1.length; j++) {
-            if (i == 0) {
-                arr[i][j] = j;
-            } else {
-                arr[i][j] = Math.min(
-                    arr[i-1][j] + 1, 
-                    arr[i][j-1] + 1, 
-                    arr[i - 1][j - 1] + (s1[j - 1] !== s2[i - 1])
-                )
+    s1 = s1.toLowerCase().split(" ");
+    s2 = s2.toLowerCase().split(" ");
+    let similarity = 0;
+    for (let i = 0; i < s1.length; i++) {
+        for (let j = 0; j < s2.length; j++) {
+            if (s1[i].indexOf(s2[j]) != -1) {
+                similarity++;
             }
-          }
         }
-        return arr[s2.length][s1.length] / Math.max(s1.length, s2.length);
-      };
-
-    let actualSj = 3/4 * sentenceJaccard(s1, s2) + 1/4 * normalizedLevenshteinDistance(s1, s2);
-    return actualSj;
+    }
+    return similarity;
 }
 
 doAjaxThings();
@@ -82,40 +49,49 @@ const checkLink = () => {
         if (paramValue == "EVERYTHING") {
             articles.forEach((article) => {
                 articleHolder.innerHTML += `
-                <br>
-                <hr>
-                <div class="result">
-                    <h2>${article["title"]}</h2>
-                </div>
-                `
-            })
+                    <br>
+                    <hr>
+                    <div class="result">
+                        <div class="titleDiv">
+                            <h2 class="resultTitle">${article["title"]}</h2>
+                            <p class="resultPublished">Date Published: ${article["datePublished"]}</p>
+                        </div>
+                        <p class="resultDescription">${article["description"]}</p>
+                    </div>
+                    `;
+            });
+            articleHolder.innerHTML += `<br><hr><br><br><br>`;
             console.log(articles)
         } else {
             let searchResults = [];
             articles.forEach((article) => {
                 let currSJ = sentenceSimilarity(article['title'], paramValue);
-                if (currSJ > 0.2) {
-                    searchResults.push([currSJ, article['title']]);
+                if (currSJ != 0) {
+                    searchResults.push([currSJ, article]);
                 }
             });
+            console.log(searchResults)
             searchResults.sort(sort2DArrayFunc);
             if (searchResults.length == 0) {
-                document.querySelector(".results").innerHTML = `<h3>Alternatively, check out the <a href="?query=EVERYTHING">archives</a>.</h3>`;
+                document.querySelector(".results").innerHTML = `<h3>No results found.</h3>`;
                 document.querySelector(".container").style.paddingTop = "34vh";
             } else {
-                let cnt = 0;
                 searchResults.forEach((article) => {
-                    if (cnt >= searchResults.length / 2) return;
                     articleHolder.innerHTML += `
                     <br>
                     <hr>
                     <div class="result">
-                        <h2>${article[1]}</h2>
+                        <div class="titleDiv">
+                            <h2 class="resultTitle">${article[1]["title"]}</h2>
+                            <p class="resultPublished">Date Published: ${article[1]["datePublished"]}</p>
+                        </div>
+                        <p class="resultDescription">${article[1]["description"]}</p>
                     </div>
                     `;
-                    cnt++;
                 });
             }
+
+            document.querySelector(".results").innerHTML += `<hr><br><br><h3>Alternatively, check out the <a href="?query=EVERYTHING">archives</a>.</h3><br><br><br>`;
         }   
     }
 }
